@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Roberto
+ * @author Roberto Piña
  */
 public class AlgoritmoElipse extends Canvas {
 
@@ -28,7 +28,8 @@ public class AlgoritmoElipse extends Canvas {
 
     public static void main(String[] args) {
         AlmacenDeCoordenadas almacen = new AlmacenDeCoordenadas();
-        Elipse(400, 300, 20, 10, almacen);
+        Elipse(300, 100, almacen);
+        //Lo hice muy grande :v
         almacen.imprimeLasCoordenadas();
         // En este punto ya tengo las coordenadas de 1/4 parte... ya puedo imprimirlas
 
@@ -43,7 +44,7 @@ public class AlgoritmoElipse extends Canvas {
     }
 
     public static void pintaPuntosEn4Regiones(Graphics g, AlmacenDeCoordenadas almacen) {
-        int anchoDelPunto = 4;
+        int anchoDelPunto = 10;
         int desplazox = 400;
         int desplazoy = 300;
 
@@ -52,6 +53,7 @@ public class AlgoritmoElipse extends Canvas {
         for (int cnt = 0; cnt < almacen.getAlmacen().size(); cnt++) {
             g.fillOval(almacen.getCoordenada(cnt).getX() + desplazox, almacen.getCoordenada(cnt).getY() + desplazoy, anchoDelPunto, anchoDelPunto);
         }
+        
         //Parte 2
         g.setColor(Color.blue);
         for (int cnt = 0; cnt < almacen.getAlmacen().size(); cnt++) {
@@ -72,11 +74,7 @@ public class AlgoritmoElipse extends Canvas {
 
     }
 
-    public static void Elipse(int xc, int yc, int rx, int ry, AlmacenDeCoordenadas almacen) {
-
-        int anchoDelPunto = 1;
-        int desplazox = 400;
-        int desplazoy = 300;
+    public static void Elipse(int rx, int ry, AlmacenDeCoordenadas almacen) {
 
         int x, y, p, px, py;
         int rx2, ry2, tworx2, twory2;
